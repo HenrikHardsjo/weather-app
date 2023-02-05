@@ -22,3 +22,27 @@
   outline: none;
 }
 
+.weather-data{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city{
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.temp{
+  font-size: 90px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 12px;
+}
+
+.weather{
+  font-size: 30px;
+  font-weight: 200;
+}
+

@@ -40,12 +40,16 @@ function App() {
           <p>Welcome to the weather app! Enter a city you want info on.</p>
         </div>
       ) : (
-        <div>
-          <p>{weatherData.name}</p>
-          <p>{Math.round(weatherData.main.temp)+"°C"}</p>
-          <p>{weatherData.weather[0].main}</p>
+        <div className="weather-data">
+          <p className="city">{weatherData.name}</p>
+          <p className="temp">{Math.round(weatherData.main.temp)+"°C"}</p>
+          <p className="weather">{weatherData.weather[0].main}</p>
         </div>
       )}
+
+      {weatherData.cod === "404" ? (
+        <p>City not found.</p>
+      ): (<></>)}
     </div>
   );
 }
