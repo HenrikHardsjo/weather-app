@@ -1,5 +1,5 @@
 body {
-  background-color: lightskyblue;
+    background-image: linear-gradient(150deg, deepskyblue 0%, lightskyblue 60%);
 }
 
 .inputBox {
@@ -29,7 +29,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 25px;
-  background-color: lightskyblue;
+  background-image: linear-gradient(90deg, deepskyblue 0%, lightskyblue 60%);
+
 }
 
 .weather-data {

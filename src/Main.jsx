@@ -13,6 +13,7 @@ const Main = () => {
     redirect: "follow",
   };
 
+      //Gör getWeather till en komponent
   const getWeather = (inputCity) =>
     fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=d6d4942da58b4ee095284628230702&q=${inputCity}&days=6&aqi=no&alerts=no`,
@@ -27,6 +28,7 @@ const Main = () => {
 
 
 
+      //Gör ForecastCard till en komponent
   const ForecastCard = (inputDay) => {
     return (
       <div className="forecast-day-container">
@@ -52,7 +54,7 @@ const Main = () => {
     <div className="main-container">
       <input
         className="inputBox"
-        placeholder="Enter a city..."
+        placeholder="Enter a location..."
         onChange={(e) => setCity(e.target.value)}
         value={city}
       />
