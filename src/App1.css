@@ -1,0 +1,88 @@
+body {
+  background-color: lightskyblue;
+}
+
+.inputBox {
+  padding: 15px;
+  width: 20%;
+  margin-top: 15px;
+  border: 5px solid #555;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: whitesmoke;
+}
+
+.test-button {
+  background-color: whitesmoke;
+  font-size: 16px;
+  border: 5px solid #555;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  color: #555;
+
+  padding: 15px 30px;
+}
+.main-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background-color: lightskyblue;
+}
+
+.weather-data {
+  background-color: whitesmoke;
+  overflow: hidden;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.current-day-container {
+  border: 5px solid #555;
+  border-radius: 6px;
+  background-color: lightskyblue;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-day-container .city {
+  color: blue;
+}
+
+.current-day-container .date {
+  font-size: 20px;
+}
+
+.rightside {
+  height: 200px;
+  width: 200px;
+
+  background-color: lightskyblue;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.rightside .weather-icon {
+  scale: 150%;
+}
+
+.forecast-day-container {
+  width: 200px;
+  float: left;
+  background-color: lightskyblue;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid #555;
+  border-radius: 6px;
+}

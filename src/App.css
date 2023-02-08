@@ -35,12 +35,12 @@ body{
 }
 
 .city{
-  font-size: 30px;
+  font-size: 30px; 
   font-weight: 200;
 }
 
 .temp{
-  font-size: 90px;
+  font-size: 90px; 
   padding: 10px;
   border: 1px solid grey;
   border-radius: 12px;
