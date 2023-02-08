@@ -1,8 +1,11 @@
 import "./App1.css";
 import React, { useState } from "react";
 
-const Main = () =>{
-  const [weatherData, setWeatherData] = useState([{}]);
+import TrimString from "./Components/TrimString.jsx";
+import ForecastCard1 from "./Components/ForecastCard1";
+
+const Main = () => {
+  const [weatherData, setWeatherData] = useState({}); //useState([{}])
   const [city, setCity] = useState("");
 
   var requestOptions = {
@@ -22,16 +25,15 @@ const Main = () =>{
         console.log(data);
       });
 
-  const trimTime = (inputString, start, stop) => {
-    const newtimeString = inputString.slice(start, stop); //11,16 för tid //0,10 för datum
-    return newtimeString;
-  };
+
 
   const ForecastCard = (inputDay) => {
     return (
       <div className="forecast-day-container">
         <p className="forecast-text">
-          {trimTime(weatherData.forecast.forecastday[inputDay].date, 5, 10)}
+          <TrimString
+            InParam={[weatherData.forecast.forecastday[inputDay].date, 5, 10]}
+          />
         </p>
         <img
           src={weatherData.forecast.forecastday[inputDay].day.condition.icon}
@@ -54,7 +56,6 @@ const Main = () =>{
         onChange={(e) => setCity(e.target.value)}
         value={city}
       />
-      <p>{weatherData.main}</p>
       <button
         className="search-button"
         onClick={() => {
@@ -74,12 +75,14 @@ const Main = () =>{
             <div className="leftside">
               <h1 className="city">{weatherData.location.name}</h1>
               <h3 className="time">
-                {trimTime(weatherData.location.localtime, 11, 16)}
+                <TrimString
+                  InParam={[weatherData.location.localtime, 11, 16]}
+                />
               </h3>
               <h3 className="weather">{weatherData.current.condition.text}</h3>
 
               <h3 className="date">
-                {trimTime(weatherData.location.localtime, 0, 10)}
+                <TrimString InParam={[weatherData.location.localtime, 0, 10]} />
               </h3>
             </div>
 
@@ -94,6 +97,7 @@ const Main = () =>{
           </div>
 
           <div className="forecasts-container">
+            <ForecastCard1 InParam={weatherData}/>
             {ForecastCard(1)}
             {ForecastCard(2)}
             {ForecastCard(3)}
@@ -104,8 +108,6 @@ const Main = () =>{
       )}
     </div>
   );
-
-  
-}
+};
 
 export default Main;
