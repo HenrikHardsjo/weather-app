@@ -1,22 +1,45 @@
 import "./App.css";
 import React, { useState } from "react";
-//test
 
 function App() {
   const apiKey = "7a4ad7b465225038fc5b97080cd918bf";
+  const newApiKey = "4eb485303b48416baaf84135230702";
   const [weatherData, setWeatherData] = useState([{}]);
+  const timeString = "";
   const [city, setCity] = useState("");
+  document.title = "Weather app"; //Ändrar namn på sidan.
+
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
 
   const getWeather = (inputCity) =>
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&units=metric&appid=${apiKey}`
+      `https://api.weatherapi.com/v1/forecast.json?key=d6d4942da58b4ee095284628230702&q=${inputCity}&days=5&aqi=no&alerts=no`,
+      requestOptions
     )
       .then((response) => response.json())
       .then((data) => {
         setWeatherData(data);
         setCity("");
         console.log(data);
+
+        //console.log(weatherData.location.name);
       });
+
+  const trimTime = (inputString) => {
+    const newtimeString = inputString.slice(11, 16);
+    return newtimeString;
+  };
+
+  const showDetails = () => {
+    return (
+      <div>
+        <p>Hello</p>
+      </div>
+    );
+  };
 
   return (
     <div className="container">
@@ -26,6 +49,7 @@ function App() {
         onChange={(e) => setCity(e.target.value)}
         value={city}
       />
+      <p>{weatherData.main}</p>
       <button
         className="test-button"
         onClick={() => {
@@ -34,22 +58,43 @@ function App() {
       >
         Sök
       </button>
-    
-      {typeof weatherData.main === "undefined" ? (
+      <button
+        className="test-button"
+        onClick={() => {
+          trimTime(weatherData.location.localtime);
+        }}
+      >
+        testa tid
+      </button>
+
+      {typeof weatherData.location === "undefined" ? (
         <div>
-          <p>Enter a city you want the weather of.</p>
+          <p>Which city do you want to know the weather of?</p>
         </div>
       ) : (
-        <div className="weather-data">
-          <p className="city">{weatherData.name}</p>
-          <p className="temp">{Math.round(weatherData.main.temp)+"°C"}</p>
-          <p className="weather">{weatherData.weather[0].main}</p>
+        <div className="today-container">
+          <div className="weather-data">
+            <p className="city">{weatherData.location.name}</p>
+            <p className="temp">{weatherData.current.temp_c + "°C"}</p>
+            <p className="weather">{weatherData.current.condition.text}</p>
+            {/* <p className="weather">{weatherData.location.localtime}</p> */}
+            <p className="weather">
+              {trimTime(weatherData.location.localtime)}
+            </p>
+          </div>
+          <br></br>
+          <div className="weather-data">
+            <p className="city">{weatherData.location.name}</p>
+            <p className="temp">{weatherData.current.temp_c + "°C"}</p>
+            <p className="weather">{weatherData.current.condition.text}</p>
+            {/* <p className="weather">{weatherData.location.localtime}</p> */}
+            <p className="weather">
+              {trimTime(weatherData.location.localtime)}
+            </p>
+          </div>
+
         </div>
       )}
-
-      {weatherData.cod === "404" ? (
-        <p>City not found.</p>
-      ): (<></>)}
     </div>
   );
 }
