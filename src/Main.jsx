@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import TrimString from "./Components/TrimString.jsx";
 import ForecastCard1 from "./Components/ForecastCard1";
+import Test from "./Components/Test";
 
 const Main = () => {
   const [weatherData, setWeatherData] = useState({}); //useState([{}])
@@ -13,7 +14,7 @@ const Main = () => {
     redirect: "follow",
   };
 
-      //Gör getWeather till en komponent
+  //Gör getWeather till en komponent
   const getWeather = (inputCity) =>
     fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=d6d4942da58b4ee095284628230702&q=${inputCity}&days=6&aqi=no&alerts=no`,
@@ -26,9 +27,9 @@ const Main = () => {
         console.log(data);
       });
 
+  //Gör ForecastCard till en komponent
 
 
-      //Gör ForecastCard till en komponent
   const ForecastCard = (inputDay) => {
     return (
       <div className="forecast-day-container">
@@ -67,6 +68,22 @@ const Main = () => {
         Search
       </button>
 
+      {/* <button
+        className="search-button"
+        onClick={() => {
+          console.log("test");
+          <Test InParam={weatherData.location.name} />;
+          console.log("test3");
+        }}
+      >
+        Test
+      </button>
+      <div>
+        <p>
+          <Test InParam={weatherData.forecast.forecastday[1].day.maxtemp_c} />
+        </p>
+      </div> */}
+
       {typeof weatherData.location === "undefined" ? (
         <div>
           <h1>Which city do you want to know the weather of?</h1>
@@ -99,7 +116,9 @@ const Main = () => {
           </div>
 
           <div className="forecasts-container">
-            <ForecastCard1 InParam={weatherData}/>
+            {/* <ForecastCard1 InParam={[1,]}/>
+            InParam={[weatherData.forecast.forecastday[inputDay].date, 5, 10]} */}
+
             {ForecastCard(1)}
             {ForecastCard(2)}
             {ForecastCard(3)}

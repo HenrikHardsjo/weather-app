@@ -1,16 +1,20 @@
 import "./App1.css";
-import Main from "./Main.jsx";
+// import Main from "./Main.jsx";
+// import TestView from "./Views/TestView";
+import Searchbar from "./Components/Searchbar";
+import WeatherProvider from "./Contexts/WeatherContext";
+import WeatherView from "./Views/WeatherView";
 
 function App() {
   document.title = "Weather app"; //Ändrar namn på sidan.
 
-  //Gör Api-fetchen till en komponent.
-  
 
   return (
-    <>
-      <Main />
-    </>
+    <WeatherProvider>
+      <Searchbar/>
+      <WeatherView/>
+    </WeatherProvider>
+    // <Main/>
   );
 }
 
