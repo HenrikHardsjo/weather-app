@@ -9,6 +9,7 @@ const ForecastCard1 = (inputDay) => {
 
     return (
       <div className="forecast-day-container">
+
         <p className="forecast-text">
           <TrimString
             InParam={[weatherData.forecast.forecastday[inputDay].date, 5, 10]}
@@ -23,6 +24,9 @@ const ForecastCard1 = (inputDay) => {
           {weatherData.forecast.forecastday[inputDay].day.maxtemp_c}°C /{" "}
           {weatherData.forecast.forecastday[inputDay].day.mintemp_c}°C
         </p>
+        <p className="hiddenInfo">
+          {weatherData.forecast.forecastday[inputDay].day.condition.text}
+        </p>  
       </div>
     );
   };
