@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import { WeatherContext } from "../Contexts/WeatherContext";
 import TrimString from "./TrimString";
 
