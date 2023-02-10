@@ -12,7 +12,6 @@ function App() {
       <Searchbar/>
       <WeatherView/>
     </WeatherProvider>
-    // <Main/>
   );
 }
 
