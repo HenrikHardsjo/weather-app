@@ -89,7 +89,7 @@ body {
 }
 
 .hiddenInfo {
-  display: none;
+  opacity: 0;
   position: absolute;
   margin-top: 40px;
   font-weight: 500;
@@ -103,8 +103,15 @@ body {
 }
 
 .forecast-day-container:hover > .hiddenInfo {
-  display: flex;
-  
+  transition: opacity 0.5s;
+  opacity: 1;
 }
+
+.forecast-day-container:not(:hover) > .hiddenInfo {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+
 
 
