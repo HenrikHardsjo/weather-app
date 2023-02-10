@@ -102,8 +102,6 @@ body {
 
 }
 
-
-
 .forecast-day-container:hover > .hiddenInfo {
   display: flex;
   
