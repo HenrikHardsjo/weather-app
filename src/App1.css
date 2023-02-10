@@ -91,9 +91,14 @@ body {
 .hiddenInfo {
   display: none;
   position: absolute;
-  margin-top: 75px;
+  margin-top: 40px;
   font-weight: 500;
   font-size: small;
+  /* border: 1px solid black; */
+  /* background-color: coral; */
+  /* padding: 5px;
+  border-radius: 6px; */
+
 
 }
 
