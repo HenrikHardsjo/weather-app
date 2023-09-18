@@ -11,9 +11,21 @@ const WeatherProvider = ({ children }) => {
   };
 
 
+  // const SearchWeather = (inputCity) => {
+  //   fetch(
+  //     `https://api.weatherapi.com/v1/forecast.json?key=a68cd35bad144edda19132135231304&q=${inputCity}&days=6&aqi=no&alerts=no`,
+  //     requestOptions
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setWeatherData(data);
+  //       console.log(data);
+  //     });
+  // };
+
   const SearchWeather = (inputCity) => {
     fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=d6d4942da58b4ee095284628230702&q=${inputCity}&days=6&aqi=no&alerts=no`,
+      `http://localhost:4000/getWeather/${inputCity}`,  // New endpoint
       requestOptions
     )
       .then((response) => response.json())
@@ -22,6 +34,10 @@ const WeatherProvider = ({ children }) => {
         console.log(data);
       });
   };
+  
+
+
+
 
   return (
     <WeatherContext.Provider
