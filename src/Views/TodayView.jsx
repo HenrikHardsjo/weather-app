@@ -11,12 +11,12 @@ const TodayView = () => {
       <div className="leftside">
         <h1 className="city">{weatherData.location.name}</h1>
         <h3 className="time">
-          <TrimString InParam={[weatherData.location.localtime, 11, 16]} />
+          Local time: <TrimString InParam={[weatherData.location.localtime, 11, 16]} />
         </h3>
-        <h3 className="weather">{weatherData.current.condition.text}</h3>
+        <h3 className="weather">Weather: {weatherData.current.condition.text}</h3>
 
         <h3 className="date">
-          <TrimString InParam={[weatherData.location.localtime, 0, 10]} />
+          Date: <TrimString InParam={[weatherData.location.localtime, 0, 10]} />
         </h3>
       </div>
 

@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(90deg, deepskyblue 0%, lightskyblue 60%);
+  background-image: linear-gradient(90deg, deepskyblue 0%, lightskyblue 60%);
 }
 
 .inputBox {
@@ -30,12 +30,11 @@ body {
   align-items: center;
   padding: 25px;
   background-image: linear-gradient(90deg, deepskyblue 0%, lightskyblue 60%);
-
 }
 
 .weather-data {
   background-color: whitesmoke;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 5px;
   border-radius: 6px;
 }
@@ -69,7 +68,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 .rightside .weather-icon {
@@ -78,6 +76,7 @@ body {
 
 .forecast-day-container {
   width: 200px;
+  min-height: 170px;
   float: left;
   background-color: lightskyblue;
   margin: 5px;
@@ -86,4 +85,33 @@ body {
   align-items: center;
   border: 5px solid #555;
   border-radius: 6px;
+  overflow: hidden;
 }
+
+.hiddenInfo {
+  opacity: 0;
+  position: absolute;
+  margin-top: 40px;
+  font-weight: 500;
+  font-size: small;
+  /* border: 1px solid black; */
+  /* background-color: coral; */
+  /* padding: 5px;
+  border-radius: 6px; */
+
+
+}
+
+.forecast-day-container:hover > .hiddenInfo {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.forecast-day-container:not(:hover) > .hiddenInfo {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+
+
+
